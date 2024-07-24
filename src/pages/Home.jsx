@@ -1,12 +1,15 @@
 import React from 'react';
+import Navigation from '../../components/Navigation';
 
-const Home = ({ user }) => {
+const Home = ({ user, onLogout }) => {
   console.log(user);
   return (
-    <div>
-      <h1>Welcome, User {user.username}</h1>
-      {/* Additional content based on user */}
-    </div>
+    <>
+      <Navigation user={user} onLogout={onLogout} />
+      <div className="content-wrapper">
+        <h1>Home</h1>
+      </div>
+    </>
   );
 };
 

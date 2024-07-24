@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import { getTokenFromCookie } from "./common";
+import { set } from "mongoose";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,10 +24,9 @@ function App() {
           });
           if (!response.ok) throw new Error('Token verification failed');
           const data = await response.json();
-          setUser(data.user);
+          setUser(data.user); // This now includes id, username, and any other data
         } catch (error) {
           console.error('Token verification failed:', error);
-          // Optionally, clear the invalid token
           document.cookie = 'jwt_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         }
       }
@@ -36,21 +36,31 @@ function App() {
     verifyToken();
   }, []);
 
+  const handleLogout = () => {
+    document.cookie = 'jwt_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
+    setUser(null);
+
+    navigate("/login");
+  }
+
   if (loading) {
     return <div>Loading...</div>; // Or a loading spinner
   }
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/register" element={<Register />} />
-        <Route 
-          path="/" 
-          element={user ? <Home user={user} /> : <Navigate to="/login" replace />} 
-        />
-      </Routes>
-    </Router>
+    <div className="wrapper">
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/register" element={<Register />} />
+          <Route 
+            path="/" 
+            element={user ? <Home user={user} onLogout={handleLogout} /> : <Navigate to="/login" replace />} 
+          />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

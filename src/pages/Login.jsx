@@ -17,25 +17,19 @@ const Login = ({ setUser }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (!response.ok) {
-        throw new Error("Login Failed");
+        throw new Error("Login failed");
       }
+
       const data = await response.json();
-
-      console.log("data: ", data);
-
-      // Set user based on response and add token to local storage
-      setUser({ id: data.user.id, /* other user properties */ });
+      setUser(data.user); // This should now include id, username, and any other data
       writeCookie("jwt_token", data.token, 7);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 

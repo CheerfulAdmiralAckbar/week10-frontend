@@ -2,15 +2,11 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  width: 100%;
+  height: 100%;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: whitesmoke;
+  color: black;
 }
 
 a {
@@ -24,10 +20,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
 }
 
 h1 {
@@ -54,15 +47,82 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.wrapper {
+  padding: 15px;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.navigation-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px;
+  border-radius: 5px;
+  background: #833ab4;
+  background: linear-gradient(
+    to right,
+    #833ab4,#fd1d1d,#fcb045
+  );
+}
+
+.navigation-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.navigation-name {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-name h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navigation-links {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.navigation-links ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation-links a {
+  color: black;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.navigation-links a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.navigation-links a.active {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.navigation-links a.active:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navigation-links a:hover {
+  color: black;
+}
+
+.content-wrapper {
+  padding: 15px;
+  display: flex;
 }
