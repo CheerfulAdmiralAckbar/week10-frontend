@@ -1,4 +1,5 @@
 export default function Navigation({ user, onLogout }) {
+  console.log(JSON.stringify(user));
   return (
     <nav className="navigation-wrapper">
       <div className="navigation-inner">
@@ -8,6 +9,9 @@ export default function Navigation({ user, onLogout }) {
         <div className="navigation-links">
           {user ? (
             <ul>
+              <li>
+                <a href="#">{user.username}</a>
+              </li>
               <li>
                 <a href="#">Favourites</a>
               </li>
