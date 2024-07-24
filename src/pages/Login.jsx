@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { writeCookie } from "../common";
+
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,7 +12,7 @@ const Login = ({ setUser }) => {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5001/users/register", {
+      const response = await fetch("http://localhost:5001/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,9 +28,11 @@ const Login = ({ setUser }) => {
       }
       const data = await response.json();
 
+      console.log("data: ", data);
+
       // Set user based on response and add token to local storage
-      setUser(data.user);
-      localStorage.setItem("token", data.token);
+      setUser({ id: data.user.id, /* other user properties */ });
+      writeCookie("jwt_token", data.token, 7);
       navigate("/");
     } catch (error) {
       console.log(error);

@@ -1,18 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const Home = ({ user }) => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
-  };
-
+  console.log(user);
   return (
     <div>
-      <h1>Welcome, {user?.username}</h1>
-      <button onClick={handleLogout}>Logout</button>
+      <h1>Welcome, User {user.username}</h1>
+      {/* Additional content based on user */}
     </div>
   );
 };
