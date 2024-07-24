@@ -16,6 +16,7 @@ function App() {
   
       if (token) {
         try {
+          // Verify the token by sending it to the server, ths will return the user data to be used in state
           const response = await fetch("http://localhost:5001/users/verify-token", {
             method: "GET",
             headers: {
@@ -23,6 +24,7 @@ function App() {
               'Content-Type': 'application/json'
             }
           });
+          
   
           console.log('Response status:', response.status);
   
@@ -61,7 +63,7 @@ function App() {
   }
 
   if (loading) {
-    return <div>Loading...</div>; // Or a loading spinner
+    return <div>Loading...</div>;
   }
 
   return (
