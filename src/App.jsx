@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import Favourites from "./pages/Favourites";
 import { getTokenFromCookie } from "./common";
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
             path="/" 
             element={user ? <Home user={user} onLogout={handleLogout} /> : <Navigate to="/login" replace />} 
           />
+          <Route path="/favourites" element={user ? <Favourites user={user} onLogout={handleLogout} /> : <Navigate to="/login" replace />} />
         </Routes>
       </Router>
     </div>

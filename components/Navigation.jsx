@@ -1,31 +1,38 @@
-export default function Navigation({ user, onLogout }) {
+import { Link } from "react-router-dom";
+
+const Navigation = ({ user, onLogout }) => {
+  console.log('Navigation props:', { user, onLogout });
   console.log(JSON.stringify(user));
   return (
     <nav className="navigation-wrapper">
       <div className="navigation-inner">
         <div className="navigation-name">
-          <h1>Instagram</h1>
+          <Link to="/" style={{
+            fontWeight: 500,
+            color: 'black',
+            fontSize: '1.5rem',
+           }}>Benstagram</Link>
         </div>
         <div className="navigation-links">
           {user ? (
             <ul>
               <li>
-                <a href="#">{user.username}</a>
+                <Link to="/profile">{user.username}</Link>
               </li>
               <li>
-                <a href="#">Favourites</a>
+                <Link to="/favourites">Favourites</Link>
               </li>
               <li>
-                <a onClick={onLogout}>Logout</a>
+                <Link onClick={onLogout}>Logout</Link>
               </li>
             </ul>
           ) : (
             <ul>
               <li>
-                <a href="/login">Login</a>
+                <Link to="/login">Login</Link>
               </li>
               <li>
-                <a href="/register">Register</a>
+                <Link to="/register">Register</Link>
               </li>
             </ul>
           )}
@@ -34,3 +41,5 @@ export default function Navigation({ user, onLogout }) {
     </nav>
   )
 }
+
+export default Navigation;
