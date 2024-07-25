@@ -36,9 +36,13 @@ const Register = () => {
   return (
     <form onSubmit={handleRegister}>
       <h1>Register</h1>
+      <label>Username</label>
       <input type="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+      <label>Email</label>
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <label>Password</label>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <label>Confirm Password</label>
       <input type="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
       <button type="submit">Register</button>
     </form>
