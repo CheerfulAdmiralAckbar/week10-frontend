@@ -1,6 +1,12 @@
 export const getTokenFromCookie = (cookieName) => {
-  const match = document.cookie.match(new RegExp('(^| )' + cookieName + '=([^;]+)'));
-  return match ? match[2] : null;
+  const cookies = document.cookie.split(';');
+  for (let cookie of cookies) {
+    const [name, value] = cookie.trim().split('=');
+    if (name === cookieName) {
+      return value;
+    }
+  }
+  return null;
 };
 
 export const writeCookie = (cookieName, cookieValue, days) => {
