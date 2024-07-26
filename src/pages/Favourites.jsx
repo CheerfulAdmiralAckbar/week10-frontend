@@ -61,6 +61,7 @@ const Favourites = ({ user, onLogout }) => {
           )}
         </div>
       </div>
+      <p className="copyright">Copyright © 2023 Benstagram. All rights reserved.</p>
     </>
   );
 }

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Navigation from "../../components/Navigation";
+
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -34,18 +36,23 @@ const Register = () => {
   }
 
   return (
-    <form onSubmit={handleRegister}>
-      <h1>Register</h1>
-      <label>Username</label>
-      <input type="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <label>Email</label>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <label>Password</label>
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <label>Confirm Password</label>
-      <input type="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-      <button type="submit">Register</button>
-    </form>
+    <>
+      <Navigation />
+      <div className="register-wrapper">
+        <h2>Register</h2>
+        <form className="register-form" onSubmit={handleRegister}>
+          <label>Username</label>
+          <input type="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <label>Email</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <label>Password</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <label>Confirm Password</label>
+          <input type="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+          <button type="submit">Register</button>  
+        </form>
+      </div>
+    </>
   )
 }
 

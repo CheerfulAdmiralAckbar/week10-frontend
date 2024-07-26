@@ -26,6 +26,7 @@ const Home = ({ user, onLogout }) => {
         count: 10,
         orientation: 'portrait',
       });
+      console.log(result);
       setImages(result.response);
     } catch (error) {
       console.error(error);
@@ -44,7 +45,7 @@ const Home = ({ user, onLogout }) => {
         body: JSON.stringify({
           userId: user.id,
           imageId: image.id, 
-          thumbnailUrl: image.urls.thumb,
+          thumbnailUrl: image.urls.regular,
           authorName: image.user.name,
         }),
       });
@@ -75,7 +76,7 @@ const Home = ({ user, onLogout }) => {
           {images.map((image) => (
             <div key={image.id} className="image-item">
               <div className="image-container" onClick={() => handleFavourite(image)}>
-                <img src={image.urls.small} alt={image.alt_description} />
+                <img src={image.urls.regular} alt={image.alt_description} />
                 <div className="image-info">
                   <div className="image-info-left">
                     <p className="photographer">{image.user.name}</p>
@@ -88,6 +89,7 @@ const Home = ({ user, onLogout }) => {
             </div>
           ))}
         </div>
+        <p className="copyright">Copyright © 2023 Benstagram. All rights reserved.</p>
       </div>
     </>
   );
