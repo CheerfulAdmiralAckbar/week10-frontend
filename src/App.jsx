@@ -71,7 +71,7 @@ function App() {
     <div className="wrapper">
       <Router>
         <Routes>
-          <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login setUser={setUser} />} />
+          <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login setUser={setUser} onLogout={handleLogout} />} />
           <Route path="/register" element={<Register />} />
           <Route 
             path="/" 

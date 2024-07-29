@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navigation from "../../components/Navigation";
 
 import { writeCookie } from "../common";
 
@@ -34,12 +35,19 @@ const Login = ({ setUser }) => {
   }
 
   return (
-    <form onSubmit={handleLogin}>
-      <h1>Login</h1>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit">Login</button>
-    </form>
+    <>
+      <Navigation />
+      <div class="login-wrapper">
+        <h2>Login</h2>
+        <form className="login-form"onSubmit={handleLogin}>
+          <label>Email Address</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <label>Password</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </>
   )
 }
 

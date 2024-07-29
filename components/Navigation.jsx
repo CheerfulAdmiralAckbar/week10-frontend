@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-const Navigation = ({ user, onLogout }) => {
-  console.log('Navigation props:', { user, onLogout });
+// Default to null user and empty function for onLogout so that you don't need to pass in a user even if it doesnt exist
+const Navigation = ({ user = null, onLogout = () => {} }) => {
   console.log(JSON.stringify(user));
   return (
     <nav className="navigation-wrapper">
@@ -17,7 +17,7 @@ const Navigation = ({ user, onLogout }) => {
           {user ? (
             <ul>
               <li>
-                <Link to="/profile">{user.username}</Link>
+                <Link>Hello, <b>{user.username}</b></Link>
               </li>
               <li>
                 <Link to="/favourites">Favourites</Link>

@@ -123,7 +123,7 @@ button:focus-visible {
 }
 
 .content-wrapper {
-  padding: 20px;
+  padding: 20px 0;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -231,4 +231,77 @@ button:focus-visible {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.login-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.login-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.register-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.register-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.register-form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 70px;
 }
